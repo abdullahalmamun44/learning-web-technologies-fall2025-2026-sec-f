@@ -1,0 +1,63 @@
+<PHONES>
+    <PHONE>
+        <id sr="1">11</id> 
+        <Name>Samsung</Name>
+        <unit_price>35000</unit_price>
+        <stock>50</stock>
+        <status>1</status>
+    </PHONE>
+    <PHONE>
+        <id sr="2">20</id> 
+        <Name>HTC</Name>
+        <unit_price>65300</unit_price>
+        <stock>35</stock>
+        <status>0</status>
+    </PHONE>
+    <PHONE>
+        <id sr="3">23</id> 
+        <Name>Nokia</Name>
+        <unit_price>25100</unit_price>
+        <stock>100</stock>
+        <status>1</status>
+    </PHONE>
+</PHONES>
+<ADMISSIONS>
+    <admission>
+        <SL_NO sr="1">23</SL_NO> 
+        <Name>John Carter</Name>
+        <ADMISSION_DATE>25/12/2015</ADMISSION_DATE>
+    </admission>
+    <admission>
+        <SL_NO sr="2">29</SL_NO> 
+        <Name>Bob Marshal</Name>
+        <ADMISSION_DATE>13/01/2015</ADMISSION_DATE>
+    </admission>
+    <admission>
+        <SL_NO sr="3">35</SL_NO> 
+        <Name>Clark Kent</Name>
+        <ADMISSION_DATE>17/06/2015</ADMISSION_DATE>
+    </admission>
+</ADMISSIONS>
+<DEPARTMENT>
+    <depertment>
+        <ID>1</ID>
+        <NAME>John Doe</NAME>
+        <ADDRESS>H# 38 ,R#3,Banani, Dhaka</ADDRESS>
+        <DepaRTment>sales</DepaRTment>
+        <SALARY>$20000</SALARY>
+    </depertment>
+    <depertment>
+        <ID>2</ID>
+        <NAME>Mark Zukerberg</NAME>
+        <ADDRESS>Flat# A/1,H#20, R#18,Mirpur,Dhaka</ADDRESS>
+        <DepaRTment>Accounts</DepaRTment>
+        <SALARY>$30000</SALARY>
+    </depertment>
+    <depertment>
+        <ID>3</ID>
+        <NAME>Ala Voski</NAME>
+        <ADDRESS>H# 38, R#3,Motijeel</ADDRESS>
+        <DepaRTment>Human Resource</DepaRTment>
+        <SALARY>$30000</SALARY>
+    </depertment>
+</DEPARTMENT>
