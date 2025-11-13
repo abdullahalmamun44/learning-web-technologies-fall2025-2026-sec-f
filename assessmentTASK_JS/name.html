@@ -1,0 +1,43 @@
+<html >
+<head>
+    <title>JS Name Example</title>
+</head>
+<body>
+        <h1 id="head">NAME</h1>
+        <input type="text" id="name" name="name" value="" >
+        <p id="uError"></p>
+        <input type="button" name="" value="Submit" onclick="test()">
+        
+        <script>
+            
+            function test(){
+                
+                let name = document.getElementById('name').value;
+                
+                let uError = document.getElementById('uError');
+               
+
+                if(name == ""){
+                    uError.innerHTML = "please type name first!";
+                    uError.style.color = 'red';
+                }else if (name.length<3){
+                    uError.innerHTML= "NAME should be more than two words"
+                    uError.style.color= 'red'
+                } 
+                else if (!pattern.test(name)) {
+                    msg.innerText = "Name must start with a letter and contain only letters, dot(.) or dash(-).";
+
+                }
+                else{
+                    //document.getElementById('head').innerHTML = name;
+                    
+                    uError.innerHTML = "NAME IS VALID";
+                    uError.style.color= 'green'
+                }
+                
+
+                
+            }
+        </script>
+</body>
+</html>

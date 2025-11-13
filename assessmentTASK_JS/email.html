@@ -1,0 +1,45 @@
+<html >
+<head>
+    <title>JS EMAIL Example</title>
+</head>
+<body>
+        <h1 id="head">EMAIL</h1>
+        <input type="text" id="email" name="email" value="" >
+        <span class="info-icon" title="hint.@sample.com">&#x2139;</span>
+        
+        <p id="uError"></p>
+        
+        <input type="button" name="" value="Submit" onclick="test()">
+        
+        
+        <script>
+            
+            function test(){
+                
+                let email = document.getElementById('email').value;
+                
+                let uError = document.getElementById('uError');
+                
+
+                if(email == ""){
+                    uError.innerHTML = "please type email first!";
+                    uError.style.color = 'red';
+                }
+                else if (!email.includes("@")||!email.includes(".com")){
+                    uError.innerHTML= "TYPE A VALID EMAIL"
+                    uError.style.color= 'red'
+                } 
+                
+                else{
+                    
+                    
+                    uError.innerHTML = "EMAIL IS VALID";
+                    uError.style.color= 'green'
+                }
+                
+
+                
+            }
+        </script>
+</body>
+</html>
