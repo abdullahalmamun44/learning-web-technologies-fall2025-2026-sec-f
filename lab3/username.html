@@ -1,38 +1,41 @@
 <html>
 <head>
-    <title>Username Save</title>
+    <title>Username Save with DOM</title>
 </head>
 <body>
 
-    <form id="user1" onsubmit="addUser(event)">
+    <form id="userForm">
         <input type="text" id="username" placeholder="Write username" required>
-
         <select id="username_type" name="username_type" required>
             <option value="">Select type</option>
             <option value="text">text</option>
             <option value="number+text">number+text</option>
             <option value="numbers">numbers</option>
         </select>
-
         <button type="submit">Add</button>
     </form>
-    
+
     <h3>Added Users:</h3>
     <div id="outputArea" style="margin-top:10px;"></div>
 
-    <button onclick="saveAll()" style="margin-top:20px;">Save All</button>
+    <button id="saveButton" style="margin-top:20px;">Save All</button>
 
     <h3>Saved Users:</h3>
     <div id="savedArea" style="margin-top:10px;"></div>
 
     <script>
+        const userForm = document.getElementById("userForm");
+        const outputArea = document.getElementById("outputArea");
+        const savedArea = document.getElementById("savedArea");
+        const saveButton = document.getElementById("saveButton");
+
         let userList = [];
 
-        function addUser(event) {
+        userForm.addEventListener("submit", function(event) {
             event.preventDefault();
 
-            let user = document.getElementById("username").value.trim();
-            let type = document.getElementById("username_type").value;
+            const user = document.getElementById("username").value.trim();
+            const type = document.getElementById("username_type").value;
 
             if(user === "") {
                 alert("Username cannot be empty");
@@ -46,18 +49,18 @@
 
             userList.push({username: user, type: type});
 
-            let row = document.createElement("div");
+            const row = document.createElement("div");
             row.style.display = "flex";
             row.style.gap = "20px";
             row.style.marginBottom = "5px";
 
-            let userBox = document.createElement("div");
+            const userBox = document.createElement("div");
             userBox.style.border = "1px solid black";
             userBox.style.padding = "10px";
             userBox.style.width = "200px";
             userBox.innerText = "Username: " + user;
 
-            let typeBox = document.createElement("div");
+            const typeBox = document.createElement("div");
             typeBox.style.border = "1px solid black";
             typeBox.style.padding = "10px";
             typeBox.style.width = "200px";
@@ -66,27 +69,27 @@
             row.appendChild(userBox);
             row.appendChild(typeBox);
 
-            document.getElementById("outputArea").appendChild(row);
-            document.getElementById("user1").reset();
-        }
+            outputArea.appendChild(row);
 
-        function saveAll() {
-            let savedArea = document.getElementById("savedArea");
+            userForm.reset();
+        });
+
+        saveButton.addEventListener("click", function() {
             savedArea.innerHTML = "";
 
             userList.forEach(item => {
-                let row = document.createElement("div");
+                const row = document.createElement("div");
                 row.style.display = "flex";
                 row.style.gap = "20px";
                 row.style.marginBottom = "5px";
 
-                let userBox = document.createElement("div");
+                const userBox = document.createElement("div");
                 userBox.style.border = "1px solid green";
                 userBox.style.padding = "10px";
                 userBox.style.width = "200px";
                 userBox.innerText = "Username: " + item.username;
 
-                let typeBox = document.createElement("div");
+                const typeBox = document.createElement("div");
                 typeBox.style.border = "1px solid green";
                 typeBox.style.padding = "10px";
                 typeBox.style.width = "200px";
@@ -97,7 +100,7 @@
 
                 savedArea.appendChild(row);
             });
-        }
+        });
     </script>
 
 </body>
