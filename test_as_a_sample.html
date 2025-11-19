@@ -5,7 +5,7 @@
 </head>
 <body>
 
-    <form id="user1" onsubmit="addUser(event)">
+    <form id="user1" onsubmit="saveshow(event)">
         <input type="text" id="username" placeholder="Write username" required>
 
         <select id="username_type" name="username_type" required>
@@ -15,21 +15,13 @@
             <option value="numbers">numbers</option>
         </select>
 
-        <button type="submit">Add</button>
+        <button type="submit">Save</button>
     </form>
     
-    <h3>Added Users:</h3>
-    <div id="outputArea" style="margin-top:10px;"></div>
-
-    <button onclick="saveAll()" style="margin-top:20px;">Save All</button>
-
-    <h3>Saved Users:</h3>
-    <div id="savedArea" style="margin-top:10px;"></div>
+    <div id="outputArea" style="margin-top:20px;"></div>
 
     <script>
-        let userList = [];
-
-        function addUser(event) {
+        function saveshow(event) {
             event.preventDefault();
 
             let user = document.getElementById("username").value.trim();
@@ -39,18 +31,15 @@
                 alert("Username cannot be empty");
                 return;
             }
+
             if(type === "") {
                 alert("Please select a username type");
                 return;
             }
-            
-
-            userList.push({username: user, type: type});
-
             let row = document.createElement("div");
             row.style.display = "flex";
             row.style.gap = "20px";
-            row.style.marginBottom = "5px";
+            row.style.marginBottom = "10px";
 
             let userBox = document.createElement("div");
             userBox.style.border = "1px solid black";
@@ -69,35 +58,6 @@
 
             document.getElementById("outputArea").appendChild(row);
             document.getElementById("user1").reset();
-        }
-
-        function saveAll() {
-            let savedArea = document.getElementById("savedArea");
-            savedArea.innerHTML = "";
-
-            userList.forEach(item => {
-                let row = document.createElement("div");
-                row.style.display = "flex";
-                row.style.gap = "20px";
-                row.style.marginBottom = "5px";
-
-                let userBox = document.createElement("div");
-                userBox.style.border = "1px solid green";
-                userBox.style.padding = "10px";
-                userBox.style.width = "200px";
-                userBox.innerText = "Username: " + item.username;
-
-                let typeBox = document.createElement("div");
-                typeBox.style.border = "1px solid green";
-                typeBox.style.padding = "10px";
-                typeBox.style.width = "200px";
-                typeBox.innerText = "Type: " + item.type;
-
-                row.appendChild(userBox);
-                row.appendChild(typeBox);
-
-                savedArea.appendChild(row);
-            });
         }
     </script>
 
